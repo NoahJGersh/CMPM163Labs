@@ -8,7 +8,7 @@ NOTE: Link is only visible to students and faculty at University of California, 
 Notes: The lab assignment only called for the cubes' rotations, though I added some orbiting behavior to the magenta cube to spice things up a bit.
 
 ### Part 2
-![Lab 2, Part 2 Render](lab2/l2p2render.png)
+![Lab 2, Part 2 Render](lab2/l2p2render.PNG)
 Model Sources:
 - Cone is attributed to Emmanuel PUYBARET / eTeks <info@eteks.com> and Scopia Visual Interfaces Systems, s.l. (http://www.scopia.es).
 - Dragon is attributed to user 3dhaupt on Free3d (https://www.free3d.com/user/3dhaupt).
