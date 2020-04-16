@@ -2,10 +2,37 @@
 /* Noah Gersh - ngersh - me@noahger.sh
  *
  * Made for CMPM 163, Spring 2020
+ * Renders rotating cubes with different materials/shaders.
  * Adapted from lab instructions.
  *
  * 2020-04-15
  */
+
+// Init shaders
+THREE.Cache.enabled = true;
+var count = 0;
+var loader = new THREE.FileLoader();
+var fshader, vshader;
+
+loader.load('shaders/vertexShader.vert', // Vert shader
+    data => { // onLoad
+        console.log(data); // output the text to the console
+        vshader = data;
+        ++count;
+        addCoolCube();
+    },
+    xhr => console.log((xhr.loaded/xhr.total * 100) + '% loaded'), // onProgress
+    err => console.error('An error occurred')); // onError
+
+loader.load('shaders/fragmentShader.frag', // Frag shader
+    data => { // onLoad
+        console.log(data);
+        fshader = data;
+        ++count;
+        addCoolCube();
+    },
+    xhr => console.log((xhr.loaded/xhr.total * 100) + '% loaded'), //onProgress
+    err => console.error('An error occurred')); // onError
 
 // Init scene and camera
 var scene = new THREE.Scene();
@@ -35,6 +62,22 @@ var materials = [new THREE.MeshPhongMaterial({   color:     0xdddddd,
 var cubes = [];
 for (let i = 0; i < 3; ++i) cubes.push(new THREE.Mesh(geometries[i], materials[i]));
 cubes.forEach(cube => scene.add(cube));
+
+// Special geometry
+var sGeometry, sMaterial, sMesh;
+function addCoolCube() {
+    if (count == 2) {
+        sGeometry = new THREE.BoxGeometry(1, 1, 1);
+        sMaterial = new THREE.ShaderMaterial({
+            fragmentShader: fshader,
+            vertexShader: vshader,
+            precision: "mediump"
+        });
+        sMesh = new THREE.Mesh(sGeometry, sMaterial);
+        sMesh.position.y = 2;
+        scene.add(sMesh);
+    }
+}
 
 // Init lighting
 var light = new THREE.PointLight(0xffffff, 1, 1000);
@@ -70,6 +113,11 @@ function animate() {
     geometries[2].rotateY(0.01);
     geometries[2].rotateZ(-0.01);
     geometries[2].translate(2, 0, 0);
+
+    if (sGeometry) {
+        sGeometry.rotateX(-0.01);
+        sGeometry.rotateY(0.01);
+    }
 
     renderer.render(scene, camera);
 }
