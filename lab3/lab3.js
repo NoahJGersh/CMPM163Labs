@@ -10,29 +10,45 @@
 
 // Init shaders
 THREE.Cache.enabled = true;
-var count = 0;
+var vertInit = false;
+var diFragInit = false;
+var siFragInit = false;
 var loader = new THREE.FileLoader();
-var fshader, vshader;
+var difshader, sifshader, vshader;
 
-loader.load('shaders/vertexShader.vert', // Vert shader
+// Vertex Shader
+loader.load('shaders/vertexShader.vert',
     data => { // onLoad
         console.log(data); // output the text to the console
         vshader = data;
-        ++count;
-        addCoolCube();
+        vertInit = true;
+        addDepthInterpCube();
+        addSineInterpCube();
     },
     xhr => console.log((xhr.loaded/xhr.total * 100) + '% loaded'), // onProgress
     err => console.error('An error occurred')); // onError
 
-loader.load('shaders/fragmentShader.frag', // Frag shader
+// Depth Interpolation
+loader.load('shaders/depthInterp.frag', // Frag shader
     data => { // onLoad
         console.log(data);
-        fshader = data;
-        ++count;
-        addCoolCube();
+        difshader = data;
+        diFragInit = true;
+        addDepthInterpCube();
     },
     xhr => console.log((xhr.loaded/xhr.total * 100) + '% loaded'), //onProgress
     err => console.error('An error occurred')); // onError
+
+// Sine Interpolation
+loader.load('shaders/sineInterp.frag',
+    data => {
+        console.log(data);
+        sifshader = data;
+        siFragInit = true;
+        addSineInterpCube();
+    },
+    xhr => console.log((xhr.loaded/xhr.total * 100) + '% loaded'),
+    err => console.error('An error occurred'));
 
 // Init scene and camera
 var scene = new THREE.Scene();
@@ -63,19 +79,45 @@ var cubes = [];
 for (let i = 0; i < 3; ++i) cubes.push(new THREE.Mesh(geometries[i], materials[i]));
 cubes.forEach(cube => scene.add(cube));
 
-// Special geometry
-var sGeometry, sMaterial, sMesh;
-function addCoolCube() {
-    if (count == 2) {
-        sGeometry = new THREE.BoxGeometry(1, 1, 1);
-        sMaterial = new THREE.ShaderMaterial({
-            fragmentShader: fshader,
+// Depth interpolation geometry
+var diGeometry, diMaterial, diMesh;
+function addDepthInterpCube() {
+    if (vertInit && diFragInit) {
+        let uniforms = {
+            colorA: {type: 'vec3', value: new THREE.Color(0x112f52)},
+            colorB: {type: 'vec3', value: new THREE.Color(0xcd385b)}
+        }
+        diGeometry = new THREE.BoxGeometry(1, 1, 1);
+        diMaterial = new THREE.ShaderMaterial({
+            uniforms: uniforms,
+            fragmentShader: difshader,
             vertexShader: vshader,
             precision: "mediump"
         });
-        sMesh = new THREE.Mesh(sGeometry, sMaterial);
-        sMesh.position.y = 2;
-        scene.add(sMesh);
+        diMesh = new THREE.Mesh(diGeometry, diMaterial);
+        diMesh.position.y = 2;
+        scene.add(diMesh);
+    }
+}
+
+// Sine interpolation geometry
+var siGeometry, siMaterial, siMesh;
+function addSineInterpCube() {
+    if (vertInit && siFragInit) {
+        let uniforms = {
+            colorA: {type: 'vec3', value: new THREE.Color(0xff0000)},
+            colorB: {type: 'vec3', value: new THREE.Color(0x0000ff)}
+        }
+        siGeometry = new THREE.BoxGeometry(1, 1, 1);
+        siMaterial = new THREE.ShaderMaterial({
+            uniforms: uniforms,
+            fragmentShader: sifshader,
+            vertexShader: vshader,
+            precision: "mediump"
+        });
+        siMesh = new THREE.Mesh(siGeometry, siMaterial);
+        siMesh.position.y = -2;
+        scene.add(siMesh);
     }
 }
 
@@ -114,9 +156,14 @@ function animate() {
     geometries[2].rotateZ(-0.01);
     geometries[2].translate(2, 0, 0);
 
-    if (sGeometry) {
-        sGeometry.rotateX(-0.01);
-        sGeometry.rotateY(0.01);
+    if (diGeometry) {
+        diGeometry.rotateX(-0.01);
+        diGeometry.rotateY(0.01);
+    }
+
+    if (siGeometry) {
+        siGeometry.rotateX(0.01);
+        siGeometry.rotateY(-0.01);
     }
 
     renderer.render(scene, camera);
