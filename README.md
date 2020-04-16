@@ -6,7 +6,7 @@ Video: https://drive.google.com/file/d/15GTVrQrh1DBBSV1GhE9M-6rei60TxTuJ/view?us
 
 NOTE: Link is only visible to students and faculty at University of California, Santa Cruz.
 
-Notes: The lab assignment only called for the cubes' rotations, though I added some orbiting behavior to the magenta cube to spice things up a bit.
+The lab assignment only called for the cubes' rotations, though I added some orbiting behavior to the magenta cube to spice things up a bit.
 
 ### Part 2
 ![Lab 2, Part 2 Render](lab2/l2p2render.PNG)
@@ -21,7 +21,7 @@ Model Sources:
 ## Lab 3
 Video: https://drive.google.com/file/d/1mRXQXgjN-JNhvBmhg186EWhUC1UlPFgv/view?usp=sharing
 
-Note: Link is only visible to students and faculty at University of California, Santa Cruz.
+NOTE: Link is only visible to students and faculty at University of California, Santa Cruz.
 
 ### Cube Materials
 
