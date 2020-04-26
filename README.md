@@ -34,3 +34,34 @@ NOTE: Link is only visible to students and faculty at University of California, 
 **Top Cube:** Original cube with depth-based linear interpolation.
 
 **Bottom Cube:** Cube with modified shader code from the top cube. Specified color values are modified by a sine wave function, resulting in depth-based striations.
+
+## Lab 4
+Video: https://drive.google.com/file/d/1nlD_R_Hrbx4D9NhsaYFJJCVEN5S5U7_N/view?usp=sharing
+
+NOTE: Link is only visible to students and faculty at University of California, Santa Cruz.
+
+### Cube Creation
+
+**Top & Bottom Left & Center:** ThreeJS Phong Material cubes with simple texture (left) and matching normal map (center).
+
+**Right Top:** ThreeJS Shader Material cube with texture.
+
+**Right Bottom:** ThreeJS Shader Material cube with tiled texture. Tiling was achieved with a modulo; I noticed that justifying the texture with a different size required a multiplication by some coefficient. By performing a modulo with the reciprocal of that coefficient, one gets the correct sizing and a complete coverage of the model via the remainder.
+
+### Question Answers
+
+Assuming mapping is uv(0, 0) -> xy(0, 7), or orientation correct:
+
+a. x = 7 * u
+
+b. y = 7 - (7 * u)
+
+c. Grey is sampled.
+
+Otherwise, assuming mapping is uv(0, 0) -> xy(0, 0), or coordinate correct:
+
+a. x = 7 * u
+
+b. y = 7 * u
+
+c. White is sampled.
