@@ -1,8 +1,9 @@
-// Lab 3 -- vertexShader.vert
+// Lab 3 -- tVertexShader.vert
 /* Noah Gersh - ngersh - me@noahger.sh
  * 
  * Made for CMPM 163, Spring 2020
- * Basic vertex shader.
+ * Basic vertex shader, for loading with
+ * tiled fragment shader.
  * Adapted from lab instructions.
  * 
  * 2020-04-25

@@ -1,8 +1,8 @@
-// Lab 3 -- fragmentShader.frag
+// Lab 3 -- tFragmentShader.frag
 /* Noah Gersh - ngersh - me@noahger.sh
  * 
  * Made for CMPM 163, Spring 2020
- * Fragment shader for texture UVs.
+ * Fragment shader for texture UVs, tiled.
  * Adapted from lab instructions.
  * 
  * 2020-04-25
