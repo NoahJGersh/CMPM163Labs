@@ -65,3 +65,8 @@ a. x = 7 * u
 b. y = 7 * u
 
 c. White is sampled.
+
+## Lab 5
+Cube Explosion Video: https://drive.google.com/file/d/1OLcHz70Ze54nLrKeSPaDhM0gi4axEZ9k/view?usp=sharing
+
+NOTE: Link is only visible to students and faculty at University of California, Santa Cruz.
