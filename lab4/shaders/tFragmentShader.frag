@@ -13,6 +13,6 @@ varying vec2 vUv;
 
 void main() {
     // sample from texture based on the uv coordinates
-    vec2 mapping = mod(vUv, 0.33333);
-    gl_FragColor = texture2D(texture1, mapping);
+    vec2 mapping = 3.0 * mod(vUv, 0.33333);
+    gl_FragColor = texture2D(texture1, 3.0 * mod(vUv, 0.3333333333));
 }
