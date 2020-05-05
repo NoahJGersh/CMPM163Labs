@@ -3,7 +3,8 @@
  *
  * Made for CMPM 163, Spring 2020
  * Creates particles with animated
- * positions, as an explosive square.
+ * positions, as an explosive and
+ * semi-psuedorandom effect.
  * Adapted from lab instructions.
  *
  * 2020-05-02
@@ -39,23 +40,40 @@ for (let i = 0; i < 1000; ++i) {
             Math.random() * 0.002 - 0.001,
             Math.random() * 0.002 - 0.001,
             0),
+        // rotMagnitude: Math.random() + 1, // Magnitude of rotation
     }
     particles.push(particle);
     geo.vertices.push(particle.position);
 }
 
 // Initialize Point Material
-const mat = new THREE.PointsMaterial({color: 0xffffff, size: 0.5});
+const sprite = new THREE.TextureLoader().load('textures/disc.png');
+const mat = new THREE.PointsMaterial({map: sprite, color: 0xff00ff, size: 2.0});
 var mesh = new THREE.Points(geo, mat);
 mesh.position.z = -4;
 scene.add(mesh);
 
 // Animate
+var rad = 0;
 function animate() {
 
     // Edit particle position
     particles.forEach(p => {
+
+        // Each frame, each particle gets a random radian to determine its magnitude
+        rad = Math.random() * 2 * Math.PI;
+        const magnitude = Math.sin(rad);
+
+        // The magnitude is applied to a vector for adding to the positional (and derivative)
+        // properties of the particle.
+        const magVec = new THREE.Vector3(magnitude, magnitude, magnitude);
+
+        // The velocity gets the acceleration added as before, but the magnitudinal
+        // vector is added as well.
         p.velocity.add(p.acceleration);
+        p.velocity.add(magVec);
+
+        // Then we update the position of the particle.
         p.position.add(p.velocity);
     });
     mesh.geometry.verticesNeedUpdate = true;
