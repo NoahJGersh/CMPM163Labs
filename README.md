@@ -88,9 +88,13 @@ NOTE: Links are only visible to students and faculty at University of California
 
 ### Material Replication
 
-Reference Image: ![Lab 6 Material Reference](lab6/images/reference.jpg)
+Reference Image: 
 
-Reproduction: ![Lab 6 Material Reproduction](lab6/images/materials.png)
+![Lab 6 Material Reference](lab6/images/reference.jpg)
+
+Reproduction: 
+
+![Lab 6 Material Reproduction](lab6/images/materials.png)
 
 Process: To go about creating some basic materials for my Nintendo Switch, I took three reference points: the left, red Joycon; the right, blue Joycon; and the center, black screen. I started with the screen, and determined that a smooth, highly specular, and very reflective material would work great. I applied these properties and found quick, positive results. For the Joycons, I noticed that their material was vibrant, but somewhat diffuse. I decided to apply a non-metallic approach to these, with low smoothness, and changed the Albedo color to represent their color differences.
 
@@ -106,6 +110,10 @@ I created a custom, procedural skybox with a large Sun, as well as cooler blue a
 
 ### Scene
 
-Setup: ![Scene Setup in Unity](lab6/images/scene.png)
+Setup: 
 
-Final: ![Scene Preview](lab6/images/preview.png)
+![Scene Setup in Unity](lab6/images/scene.png)
+
+Final: 
+
+![Scene Preview](lab6/images/preview.png)
