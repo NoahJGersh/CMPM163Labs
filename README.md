@@ -67,6 +67,45 @@ b. y = 7 * u
 c. White is sampled.
 
 ## Lab 5
+
 Cube Explosion Video: https://drive.google.com/file/d/1OLcHz70Ze54nLrKeSPaDhM0gi4axEZ9k/view?usp=sharing
 
-NOTE: Link is only visible to students and faculty at University of California, Santa Cruz.
+Custom Effect Video: https://drive.google.com/file/d/1Yh8PRmaHbb5_s-v9M2-6fkWD3jaHy_xT/view?usp=sharing
+
+NOTE: Links are only visible to students and faculty at University of California, Santa Cruz.
+
+## Lab 6
+
+### Definitions
+
+- Point Light: A light source that casts light equally in all directions from its origin.
+
+- Spotlight: A light source that casts light in a specified cone from its origin.
+
+- Directional Light: A light source that casts light globally in a single direction.
+
+- Area Light: A light source that casts light from one side of a plane, in all directions.  
+
+### Material Replication
+
+Reference Image: ![Lab 6 Material Reference](images/reference.jpg)
+
+Reproduction: ![Lab 6 Material Reproduction](images/materials.png)
+
+Process: To go about creating some basic materials for my Nintendo Switch, I took three reference points: the left, red Joycon; the right, blue Joycon; and the center, black screen. I started with the screen, and determined that a smooth, highly specular, and very reflective material would work great. I applied these properties and found quick, positive results. For the Joycons, I noticed that their material was vibrant, but somewhat diffuse. I decided to apply a non-metallic approach to these, with low smoothness, and changed the Albedo color to represent their color differences.
+
+### Textures
+
+Pebbles and Sapphire texture maps were made by Joao Paulo. (https://3dtextures.me/2020/05/08/pebbles-020/, https://3dtextures.me/2018/10/04/sapphire-001/). 
+
+I merely applied these textures to spheres, respectively, using their Albedo, Normal, Ambient Occlusion, and Height maps for a metallic-approach Standard Shader-based material.
+
+### Skybox
+
+I created a custom, procedural skybox with a large Sun, as well as cooler blue and lavender colors to evoke the sense of some distant planet, and to play well with the magenta of the area light. I think it ties the whole scene together in a nice way.
+
+### Scene
+
+Setup: ![Scene Setup in Unity](images/scene.png)
+
+Final: ![Scene Preview](images/preview.png)
