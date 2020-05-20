@@ -117,3 +117,13 @@ Setup:
 Final: 
 
 ![Scene Preview](lab6/images/preview.png)
+
+## Lab 7
+
+I completed the Unity portion of this lab assignment. I took some creative liberties with it, going for a minimalist/low-poly aesthetic, and somewhat reinterpreting the scene. Though the assignment itself called for a mountain and *water* scene, I used the wave shader to actually represent a slow rolling fog through the peaks instead. I additionally used the initial displacement mesh and applied it to an unlit and emissive shader, to represent a sort of sun. To tie the scene together, I added some Voronoi displacement-based clouds as well, with sinusoidal time-based displacement scaling. 
+
+I was not able to get into contact with my lab partner, and as such cannot complete that portion of the assignment.
+
+Scene Video: https://drive.google.com/file/d/1f4iyWfLzZmn7u7B_ygbe1XMeR1TcdBuD/view?usp=sharing
+
+NOTE: Link is only visible to students and faculty at University of California, Santa Cruz.
