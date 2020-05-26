@@ -156,8 +156,8 @@ MonoBehaviour:
   - {fileID: 8810690252108396825, guid: 1de21011d26750a4c88a39d8c472e4a1, type: 3}
   - {fileID: 8803906488622046406, guid: 944585f5177007d4dac7072a6c3466e8, type: 3}
   - {fileID: 4979997579409503309, guid: d2371b77892a2d54eb434e35d7e23578, type: 3}
-  mapWidth: 200
-  mapHeight: 200
+  mapWidth: 100
+  mapHeight: 100
   suburbRange: 5
   noiseFactor: 10
   noiseSeed: -1
