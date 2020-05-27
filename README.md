@@ -127,3 +127,17 @@ I was not able to get into contact with my lab partner, and as such cannot compl
 Scene Video: https://drive.google.com/file/d/1f4iyWfLzZmn7u7B_ygbe1XMeR1TcdBuD/view?usp=sharing
 
 NOTE: Link is only visible to students and faculty at University of California, Santa Cruz.
+
+## Lab 8
+
+Inspiration:
+
+![ArcCorp's Area18](lab8/images/area18.png)
+
+Final:
+
+![My final procedural city, inspired by Area18](lab8/images/scene.png)
+
+This was a pretty fun lab to complete. I'd been playing a lot of Star Citizen lately, and one of the currently implemented planets is essentially the Star Citizen version of Coruscant: a mega-city that sprawls across the entire planet, called ArcCorp. Obviously the sheer amount of detail and generation required for that planet goes *far* beyond the scope of this assignment, but I took some general color pointers from it. ArcCorp, though an entire city, has certain regions with more concentrated commercial buildings and skyscrapers, with the main one called "Area18." The vaulting buildings of Area18 are most notably red, cream, and dark grey. I used these colors (along with some metallic and diffuse variants) to create distinct buildings to populate the city. I also adjusted the skybox gradient to fit with a more orange-beige atmosphere, and chose a very dark red to serve as a ground plane. For variety, the buildings generate with a random position each time.
+
+My partner completed Part 2, the ThreeJS portion of the lab assignment. I did not have a chance to ask the questions when they were submitting, as I had not yet begun the lab. We did not assist each other with our lab assignments.
